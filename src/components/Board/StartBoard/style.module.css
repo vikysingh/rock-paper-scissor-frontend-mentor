@@ -1,0 +1,61 @@
+.start_board {
+    width: 30vw;
+    height: auto;
+    position: relative;
+    left: 10vw;
+    top: 2vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.start_board_bar {
+    background-color: hsl(229, 25%, 31%);
+    height: 20px;
+    width: 100px;
+    position: absolute;
+    width: 60%;
+    z-index: -1;
+    transform-origin: center;
+}
+
+.start_board img {
+    margin: 10px;
+}
+
+.start_board img:last-child {
+    position: relative;
+    left: 30%;
+}
+
+/* First bar */
+.start_board_bar:nth-child(2) {
+    margin-top: 15%;
+    margin-left: 75px;
+}
+
+/* Second bar */
+.start_board_bar:nth-child(4) {
+    margin-top: 35%;
+    margin-left: 5%;
+    
+    transform: rotate(50deg);
+}
+
+/* Third bar */
+.start_board_bar:nth-child(5) {
+    margin-top: 35%;
+    margin-left: 34%;
+    
+    transform: rotate(-50deg);
+}
+
+@media (max-width: 475px) {
+    .start_board {
+        width: 90vw;
+        left: 0vw;
+        top: 30vw;
+    }
+}

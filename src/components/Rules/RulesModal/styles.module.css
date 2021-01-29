@@ -1,0 +1,50 @@
+.modal_section {
+    /* width: 100vw;
+    height: 100vh; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 4;
+}
+
+.modal {
+    width: 30vw;
+    height: 30vw;
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    top: 10vw;
+}
+
+.modal_header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: hsl(229, 25%, 31%);
+    /* color: hsl(229, 64%, 46%) */
+}
+
+.modal_close_icon {
+    cursor: pointer;
+}
+
+.modal_img {
+    width: 85%;
+    position: relative;
+    left: 7.5%;
+    top: 7.5%;
+}
+
+@media (max-width: 475px) {
+    .modal {
+        width: 90vw;
+        height: 90vw;
+        top: 40vw;
+    }
+}

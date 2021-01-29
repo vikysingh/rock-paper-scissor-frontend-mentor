@@ -1,0 +1,18 @@
+.rules_btn {
+    border: 2px solid hsl(217, 16%, 45%);
+    background: transparent;
+    padding: 10px 25px;
+    position: absolute;
+    right: 25px;
+    bottom: 35px;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 200ms all ease;
+}
+
+.rules_btn:hover {
+    background-color: hsl(217, 16%, 45%);
+    /* color:  */
+}
