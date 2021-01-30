@@ -3,7 +3,7 @@ import RulesModal from "./RulesModal/index"
 
 import {useState} from "react"
 
-export default function index() {
+export default function Index() {
     const [ visible, setVisible ] = useState<boolean>(false)
     return (
         <>
