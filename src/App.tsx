@@ -35,38 +35,37 @@ export default function App() {
   }
 
   useEffect(() => {
+    function checkScore() {
+      //All the winning cases for the user
+      //User selected scissor, house paper
+      if (userSelection === "scissor" && houseSelection === "paper") {
+        setUserScore((score) => score + 1)
+        setWinner("user")
+      }
+      //user selected rock, house scissor
+      else if (userSelection === "rock" && houseSelection === "scissor") {
+        setUserScore((score) => score + 1)
+        setWinner("user")
+      } else if (userSelection === "paper" && houseSelection === "rock") {
+        setUserScore((score) => score + 1)
+        setWinner("user")
+      }
+      //All the winning cases for the computer
+      else if (userSelection === "paper" && houseSelection === "scissor") {
+        setUserScore(score => score - 1)
+        setWinner("")
+      }
+      //user selected rock, house scissor
+      else if (userSelection === "scissor" && houseSelection === "rock") {
+        setUserScore((score) => score - 1)
+        setWinner("")
+      } else if (userSelection === "rock" && houseSelection === "paper") {
+        setUserScore((score) => score - 1)
+        setWinner("")
+      }
+    }
     checkScore()
   }, [userSelection])
-
-  function checkScore() {
-    //All the winning cases for the user
-    //User selected scissor, house paper
-    if (userSelection === "scissor" && houseSelection === "paper") {
-      setUserScore(() => userScore + 1)
-      setWinner("user")
-    }
-    //user selected rock, house scissor
-    else if (userSelection === "rock" && houseSelection === "scissor") {
-      setUserScore(() => userScore + 1)
-      setWinner("user")
-    } else if (userSelection === "paper" && houseSelection === "rock") {
-      setUserScore(() => userScore + 1)
-      setWinner("user")
-    }
-    //All the winning cases for the computer
-    else if (userSelection === "paper" && houseSelection === "scissor") {
-      setUserScore(() => userScore - 1)
-      setWinner("")
-    }
-    //user selected rock, house scissor
-    else if (userSelection === "scissor" && houseSelection === "rock") {
-      setUserScore(() => userScore - 1)
-      setWinner("")
-    } else if (userSelection === "rock" && houseSelection === "paper") {
-      setUserScore(() => userScore - 1)
-      setWinner("")
-    }
-  }
 
   function playAgain() {
     setUserSelection("")
