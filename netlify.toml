@@ -1,1 +1,2 @@
-CI= yarn build
+[build]
+  CI= "yarn build"
