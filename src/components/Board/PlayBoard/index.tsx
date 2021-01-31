@@ -9,6 +9,8 @@ interface ColumnProps {
 interface PlayBoardProps {
     firstIcon: any;
     secondIcon: any;
+    winner: string;
+    resetter: any;
 }
 
 function Column({title, icon}: ColumnProps) {
@@ -18,12 +20,12 @@ function Column({title, icon}: ColumnProps) {
     </div>
 }
 
-export default function PlayBoard({firstIcon, secondIcon}:PlayBoardProps) {
+export default function PlayBoard({firstIcon, secondIcon, winner, resetter}:PlayBoardProps) {
     return (
         <main className={styles.play_board} >
             <Column title="YOU PICKED" icon={firstIcon} />
             <Column title="THE HOUSE PICKED" icon={secondIcon} />
-            <ResultBanner label="YOU WIN" />
+            <ResultBanner resetter={resetter} label={winner === "user" ? "YOU WIN" : "YOU LOSE"} />
         </main>
     )
 }

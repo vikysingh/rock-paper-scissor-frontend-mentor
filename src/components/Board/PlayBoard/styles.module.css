@@ -46,7 +46,7 @@
     margin-top: 10px;
 }
 
-@media (max-width: 475px) {
+@media (max-width: 600px) {
     .play_board {
         width: 90vw;
     }

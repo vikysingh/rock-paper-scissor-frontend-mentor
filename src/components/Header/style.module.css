@@ -22,7 +22,7 @@
     font-size: 2.5rem;
 }
 
-@media (max-width: 475px) {
+@media (max-width: 600px) {
     .header {
         width: 90vw;
     }

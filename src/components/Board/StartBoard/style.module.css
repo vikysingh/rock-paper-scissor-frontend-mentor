@@ -52,7 +52,7 @@
     transform: rotate(-50deg);
 }
 
-@media (max-width: 475px) {
+@media (max-width: 600px) {
     .start_board {
         width: 90vw;
         left: 0vw;

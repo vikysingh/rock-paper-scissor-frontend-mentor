@@ -41,7 +41,7 @@
     top: 7.5%;
 }
 
-@media (max-width: 475px) {
+@media (max-width: 600px) {
     .modal {
         width: 90vw;
         height: 90vw;

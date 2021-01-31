@@ -1,28 +1,32 @@
-import Header from "./components/Header";
-import Rules from "./components/Rules/index";
-import { StartBoard, PlayBoard } from "./components/Board/index";
-import {Paper, Rock, Scissor} from "./components/Icons/index"
+import Header from "./components/Header"
+import Rules from "./components/Rules/index"
+import { StartBoard, PlayBoard } from "./components/Board/index"
+import { Paper, Rock, Scissor } from "./components/Icons/index"
 
-//import Game from "./engine/Game";
-import Player from "./engine/Player";
+import { useEffect, useState } from "react"
 
-import {useEffect, useState} from "react";
-
-const base: any = {
-  paper: <Paper optionSetter={() => {}} />,
-  rock: <Rock optionSetter={() => {}} />,
-  scissor: <Scissor optionSetter={() => {}} />
+const gameOptionsPair: any = {
+  paper: <Paper optionSetter={() => { }} />,
+  rock: <Rock optionSetter={() => { }} />,
+  scissor: <Scissor optionSetter={() => { }} />
 }
 
-const gameOptions = [
+const houseOption: string[] = [
   "paper", "rock", "scissor"
 ]
 
 export default function App() {
 
-  // const user = new Player("YOU");
+  //userSelection => if user selects rock, paper, or scissors
+  const [userSelection, setUserSelection] = useState<string>("")
+  //score of the user
+  const [userScore, setUserScore] = useState<number>(0)
+  //houseOption => if the computer selects rock, paper, or scissors
+  const [ houseSelection, setHouseSelection ] =
+  useState<string>(houseOption[genRandomInt(0, 3)])
 
-  const [ userOption, setUserOption ] = useState<string>("")
+  //for the winner
+  const [ winner, setWinner ] = useState<string>("")
 
   function genRandomInt(min: number, max: number): number {
     min = Math.ceil(min);
@@ -30,22 +34,57 @@ export default function App() {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  let rand = genRandomInt(-1, 3)
-
   useEffect(() => {
-    console.clear()
-    console.log(rand)
-  }, [rand])
+    checkScore()
+  }, [userSelection])
+
+  function checkScore() {
+    //All the winning cases for the user
+    //User selected scissor, house paper
+    if (userSelection === "scissor" && houseSelection === "paper") {
+      setUserScore(() => userScore + 1)
+      setWinner("user")
+    }
+    //user selected rock, house scissor
+    else if (userSelection === "rock" && houseSelection === "scissor") {
+      setUserScore(() => userScore + 1)
+      setWinner("user")
+    } else if (userSelection === "paper" && houseSelection === "rock") {
+      setUserScore(() => userScore + 1)
+      setWinner("user")
+    }
+    //All the winning cases for the computer
+    else if (userSelection === "paper" && houseSelection === "scissor") {
+      setUserScore(() => userScore - 1)
+      setWinner("")
+    }
+    //user selected rock, house scissor
+    else if (userSelection === "scissor" && houseSelection === "rock") {
+      setUserScore(() => userScore - 1)
+      setWinner("")
+    } else if (userSelection === "rock" && houseSelection === "paper") {
+      setUserScore(() => userScore - 1)
+      setWinner("")
+    }
+  }
+
+  function playAgain() {
+    setUserSelection("")
+    setHouseSelection(houseOption[genRandomInt(0, 3)])
+  }
 
   return (
-    <div>
-      <Header score={4} />
+    <>
+      <Header score={userScore} />
       <Rules />
       {
-        userOption !== "" ? <PlayBoard firstIcon={base["paper"]}
-        secondIcon={base[gameOptions[rand]]} /> :
-        <StartBoard optionSetter={setUserOption} />
+        userSelection !== "" ? <PlayBoard winner={winner}
+          firstIcon={gameOptionsPair[userSelection]}
+          secondIcon={gameOptionsPair[houseSelection]}
+          resetter={playAgain} /> :
+          //optionSetter is passed to StartBoard because its children require it
+          <StartBoard optionSetter={setUserSelection} />
       }
-    </div>
+    </>
   );
 }
