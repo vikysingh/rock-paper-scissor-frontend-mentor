@@ -16,7 +16,7 @@ export default function index({ clickHandler }: Props) {
                     src={CloseImage}
                     className={styles.modal_close_icon} alt="Close icon" />
                 </div>
-                <img src={Image} className={styles.modal_img} alt="Rules image" />
+                <img src={Image} className={styles.modal_img} alt="Rules" />
             </div>
         </section>
     )
