@@ -10,7 +10,7 @@ export default function Paper({optionSetter}:Props) {
     return (
         <img src={PaperIcon}
         className={`${styles.play_icons} ${styles.paper_icon}`}
-        onClick={() => optionSetter("paper")}
+        onClick={() => optionSetter("paper")} alt="Paper Icon"
         />
     )
 }

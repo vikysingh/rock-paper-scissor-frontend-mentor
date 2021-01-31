@@ -9,6 +9,7 @@ interface Props {
 export default function Rock({optionSetter}:Props) {
     return (
         <img src={RockIcon} className={`${styles.play_icons} ${styles.rock_icon}`}
-        onClick={() => optionSetter("rock")}/>
+        onClick={() => optionSetter("rock")} alt="Rock Icon"
+        />
     )
 }

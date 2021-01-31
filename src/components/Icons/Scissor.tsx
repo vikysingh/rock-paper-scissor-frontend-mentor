@@ -10,6 +10,7 @@ export default function Scissor({optionSetter}:Props) {
     return (
         <img src={ScissorIcon} 
         className={`${styles.play_icons} ${styles.scissor_icon}`}
-        onClick={() => optionSetter("scissor")}/>
+        onClick={() => optionSetter("scissor")} alt="Scissor Icon"
+        />
     )
 }
